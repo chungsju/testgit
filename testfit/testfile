@@ -1,0 +1,2 @@
+<Logger name="com.denodo.scheduler.core.commons.utils.MailUtil" level="DEBUG" />
+<Logger name="com.denodo.connect.mail.handler" level="DEBUG" />
