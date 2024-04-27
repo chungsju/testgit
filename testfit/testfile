@@ -1,2 +1,35 @@
-<Logger name="com.denodo.scheduler.core.commons.utils.MailUtil" level="DEBUG" />
-<Logger name="com.denodo.connect.mail.handler" level="DEBUG" />
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration>
+
+    <Appenders>
+
+        <RollingFile name="FILEOUT" fileName="/opt/denodo/logs/scheduler/scheduler.log" filePattern="/opt/denodo/logs/scheduler/scheduler.log.%i">
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="7" />
+            <PatternLayout pattern="%-4r [%t] %-5p %d{yyyy-MM-dd'T'HH:mm:ss.SSS} %c %x - %m  %n" />
+        </RollingFile>
+
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-4r [%t] %-5p %d{yyyy-MM-dd'T'HH:mm:ss.SSS} %c %x - %m  %n" />
+        </Console>
+
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.denodo.scheduler.core.commons.utils.MailUtil" level="DEBUG" />
+        <Logger name="com.denodo.connect.mail.handler" level="DEBUG" />
+        <Logger name="com.denodo.scheduler" level="ERROR" />
+        <Logger name="com.denodo.configuration.metadata" level="ERROR" />
+        <Logger name="com.denodo.util.launcher.ServerLauncher" level="ERROR" />
+        <Logger name="com.denodo.scheduler.core.server.quartz.plugins" level="ERROR" />
+
+        <Root level="ERROR">
+            <AppenderRef ref="FILEOUT" />
+        </Root>
+
+    </Loggers>
+
+</Configuration>
